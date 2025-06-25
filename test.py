@@ -1,11 +1,3 @@
-# -*- encoding: utf-8 -*-
-"""
-@author   :   yykzjh
-@Contact  :   yykzhjh@163.com
-@DateTime :   2023/12/30 17:05
-@Version  :   1.0
-@License  :   (C)Copyright 2023
-"""
 import os
 import argparse
 
@@ -306,7 +298,3 @@ def main():
 
     # evaluate valid set
     tester.evaluation(valid_loader)
-
-
-if __name__ == '__main__':
-    main()
