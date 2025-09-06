@@ -78,9 +78,10 @@ Please prepare an environment with python=3.8
 
 
 # Training demo:
+```
 python ./train.py --dataset 3D-CBCT-Tooth --model LieFANet --dimension 3d --scaling_version TINY --epoch 20
 python ./train.py --dataset MMOTU --model LieFANet --pretrain_weight ./pretrain/PMFSNet2D-basic_ILSVRC2012.pth --dimension 2d --scaling_version BASIC --epoch 2000
 python ./train.py --dataset ISIC-2018 --model LieFANet --dimension 2d --scaling_version BASIC --epoch 150
-
+```
 
 
