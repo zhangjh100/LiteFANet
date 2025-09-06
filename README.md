@@ -1,6 +1,10 @@
 # LiteFANet
 Please prepare an environment with python=3.8
 
+```
+pip install -r requirements.txt
+```
+
 # 3D CBCT Tooth dataset:
 
 ```
