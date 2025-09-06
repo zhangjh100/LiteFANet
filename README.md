@@ -1,6 +1,8 @@
 # LiteFANet
 Please prepare an environment with python=3.8
 
+
+Please install the environment dependencies by requirements.txt:
 ```
 pip install -r requirements.txt
 ```
