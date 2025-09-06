@@ -50,3 +50,29 @@ Please prepare an environment with python=3.8
 			1469.PNG
 ```
 
+
+# ISIC-2018 dataset:
+
+```
+./datasets/ISIC-2018/
+	train/
+		images/
+			ISIC_0000000.jpg
+			......
+			ISIC_0016072.jpg
+		annotations/
+			ISIC_0000000_segmentation.png
+			......
+			ISIC_0016072_segmentation.png
+	test/
+		images/
+			ISIC_0000003.jpg
+			......
+			ISIC_0016060.jpg
+		annotations/
+			ISIC_0000003_segmentation.png
+			......
+			ISIC_0016060_segmentation.png
+```
+
+
