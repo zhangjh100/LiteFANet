@@ -1,8 +1,9 @@
 # LiteFANet
 Please prepare an environment with python=3.8
 
-3D CBCT Tooth dataset:
+# 3D CBCT Tooth dataset:
 
+```
 ./datasets/3D-CBCT-Tooth/
     sub_volumes/160-160-96_2048.npz
     train/
@@ -23,6 +24,8 @@ Please prepare an environment with python=3.8
             1000813648_20180116.nii.gz
             ......
             X2358714.nii.gz
+```
+
 
 
 3D CBCT tooth
