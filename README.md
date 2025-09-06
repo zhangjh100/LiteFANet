@@ -79,6 +79,14 @@ Please prepare an environment with python=3.8
 
 # Training demo:
 ```
+--dataset: dataset name, optional 3D-CBCT-Tooth, MMOTU, ISIC-2018
+--model: model name, see below implemented architectures for details
+--dimension: dimension of dataset images and models, for LieFANet only
+--scaling_version: Ultra, Pro, Basic
+--epoch: training epoch
+```
+
+```
 python ./train.py --dataset 3D-CBCT-Tooth --model LieFANet --dimension 3d --scaling_version TINY --epoch 20
 python ./train.py --dataset MMOTU --model LieFANet --dimension 2d --scaling_version BASIC --epoch 2000
 python ./train.py --dataset ISIC-2018 --model LieFANet --dimension 2d --scaling_version BASIC --epoch 150
