@@ -26,32 +26,10 @@ Please prepare an environment with python=3.8
             X2358714.nii.gz
 ```
 
+# MMOTU dataset:
 
-
-3D CBCT tooth
-./datasets/3D-CBCT-Tooth/
-	sub_volumes/160-160-96_2048.npz
-	train/
-		images/
-			1000889125_20171009.nii.gz
-			......
-			X2360674.nii.gz
-		labels/
-			1000889125_20171009.nii.gz
-			......
-			X2360674.nii.gz
-	valid/
-		images/
-			1000813648_20180116.nii.gz
-			......
-			X2358714.nii.gz
-		labels/
-			1000813648_20180116.nii.gz
-			......
-			X2358714.nii.gz
-
-MMOTU:
-   ./datasets/MMOTU/
+```
+./datasets/MMOTU/
 	train/
 		images/
 			1.JPG
@@ -70,3 +48,5 @@ MMOTU:
 			3.PNG
 			......
 			1469.PNG
+```
+
