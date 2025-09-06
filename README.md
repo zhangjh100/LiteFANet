@@ -80,8 +80,21 @@ Please prepare an environment with python=3.8
 # Training demo:
 ```
 python ./train.py --dataset 3D-CBCT-Tooth --model LieFANet --dimension 3d --scaling_version TINY --epoch 20
-python ./train.py --dataset MMOTU --model LieFANet --pretrain_weight ./pretrain/PMFSNet2D-basic_ILSVRC2012.pth --dimension 2d --scaling_version BASIC --epoch 2000
+python ./train.py --dataset MMOTU --model LieFANet --dimension 2d --scaling_version BASIC --epoch 2000
 python ./train.py --dataset ISIC-2018 --model LieFANet --dimension 2d --scaling_version BASIC --epoch 150
 ```
 
+# Testing demo:
+```
+python ./test.py --dataset 3D-CBCT-Tooth --model LieFANet --pretrain_weight ./pretrain/LieFANet3D-TINY_Tooth.pth --dimension 3d --scaling_version TINY
+python ./test.py --dataset MMOTU --model LieFANet --pretrain_weight ./pretrain/LieFANet2D-BASIC_MMOTU.pth --dimension 2d --scaling_version BASIC
+python ./test.py --dataset ISIC-2018 --model LieFANet --pretrain_weight ./pretrain/LieFANet2D-BASIC_ISIC2018.pth --dimension 2d --scaling_version BASIC
+```
 
+
+# Inferenceing demo:
+```
+python ./inference.py --dataset 3D-CBCT-Tooth --model LieFANet --pretrain_weight ./pretrain/LieFANet3D-TINY_Tooth.pth --dimension 3d --scaling_version TINY --image_path ./images/1001250407_20190923.nii.gz
+python ./inference.py --dataset MMOTU --model LieFANet --pretrain_weight ./pretrain/LieFANet2D-BASIC_MMOTU.pth --dimension 2d --scaling_version BASIC --image_path ./images/453.JPG
+python ./inference.py --dataset ISIC-2018 --model LieFANet --pretrain_weight ./pretrain/LieFANet2D-BASIC_ISIC2018.pth --dimension 2d --scaling_version BASIC --image_path ./images/ISIC_0000550.jpg
+```
