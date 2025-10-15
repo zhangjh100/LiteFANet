@@ -19,7 +19,7 @@ def get_trainer(opt, train_loader, valid_loader, model, optimizer, lr_scheduler,
         trainer = KfoldToothTrainer(opt, train_loader, valid_loader, model, optimizer, lr_scheduler, loss_function, metric)
     elif opt["dataset_name"] == "MMOTU"or opt["dataset_name"] == "MMOTU-ISIC-2018" or opt["dataset_name"] == "MMOTU-Kvasir-SEG":
         trainer = MMOTUTrainer(opt, train_loader, valid_loader, model, optimizer, lr_scheduler, loss_function, metric)
-    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG":
+    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG" or opt["dataset_name"] == "acdc":
         trainer = ISIC2018Trainer(opt, train_loader, valid_loader, model, optimizer, lr_scheduler, loss_function, metric)
     else:
         raise RuntimeError(f"No {opt['dataset_name']} dataset available when initialize trainer")
