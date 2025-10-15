@@ -4,7 +4,7 @@ from monai.networks.nets import AttentionUnet
 from monai.networks.nets import UNETR, SwinUNETR
 
 import lib.utils as utils
-from lib.models.UXNet_3D.network_backbone import UXNET
+# from lib.models.UXNet_3D.network_backbone import UXNET
 from lib.models.nnFormer.nnFormer_seg import nnFormer
 from .AttU_Net import AttU_Net
 from .AttentionUNet3D import AttentionUNet3D
@@ -111,16 +111,16 @@ def get_model_optimizer_lr_scheduler(opt):
         elif opt["model_name"] == "nnFormer":
             model = nnFormer(crop_size=(160, 160, 96), input_channels=opt["in_channels"], num_classes=opt["classes"])
 
-        elif opt["model_name"] == "3DUXNet":
-            model = UXNET(
-                in_chans=opt["in_channels"],
-                out_chans=opt["classes"],
-                depths=[2, 2, 2, 2],
-                feat_size=[48, 96, 192, 384],
-                drop_path_rate=0,
-                layer_scale_init_value=1e-6,
-                spatial_dims=3,
-            )
+        # elif opt["model_name"] == "3DUXNet":
+        #     model = UXNET(
+        #         in_chans=opt["in_channels"],
+        #         out_chans=opt["classes"],
+        #         depths=[2, 2, 2, 2],
+        #         feat_size=[48, 96, 192, 384],
+        #         drop_path_rate=0,
+        #         layer_scale_init_value=1e-6,
+        #         spatial_dims=3,
+        #     )
 
         elif opt["model_name"] == "LiteFANet":
             model = LiteFANet(in_channels=opt["in_channels"], out_channels=opt["classes"], dim=opt["dimension"], scaling_version=opt["scaling_version"])
