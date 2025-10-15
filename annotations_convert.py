@@ -65,9 +65,9 @@ def batch_modify_pixels(input_dir, output_dir):
 
 if __name__ == "__main__":
     # 输入文件夹路径 - 请替换为你的图像所在文件夹
-    input_directory = "./datasets/acdc/train/annotations"
+    input_directory = "./datasets/acdc/test/annotations"
     # 输出文件夹路径 - 请替换为你想要保存结果的文件夹
-    output_directory = "./datasets/acdc/train/annotations_0"
+    output_directory = "./datasets/acdc/test/annotations_0"
 
     # 执行批量处理
     batch_modify_pixels(input_directory, output_directory)
