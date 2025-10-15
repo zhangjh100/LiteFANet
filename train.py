@@ -532,7 +532,7 @@ params_acdc = {
     "num_workers": 4,
     # —————————————————————————————————————————————    Model     ——————————————————————————————————————————————————————
     "model_name": "CENet",
-    "in_channels": 3,
+    "in_channels": 1,
     "classes": 4,
     # "scaling_version": "Ultra",
     "dimension": "2d",
