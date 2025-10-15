@@ -61,6 +61,12 @@ class acdcDataset(Dataset):
     def __getitem__(self, index):
         image = cv2.imread(self.images_list[index], -1)
         label = cv2.imread(self.labels_list[index], -1)
+
+        if len(image.shape) == 2:  # 若图像是单通道（H, W）
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)  # 灰度图转 3 通道 BGR
+        elif image.shape[2] == 1:  # 若图像是单通道带维度（H, W, 1）
+            image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+
         label[label == 171] = 1
         label[label == 114] = 2
         label[label == 57] = 3
