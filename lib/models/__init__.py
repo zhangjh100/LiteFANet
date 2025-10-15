@@ -170,7 +170,7 @@ def get_model_optimizer_lr_scheduler(opt):
         else:
             raise RuntimeError(f"No {opt['model_name']} model available on {opt['dataset_name']} dataset")
 
-    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG":
+    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG" or opt["dataset_name"] == "acdc":
         if opt["model_name"] == "LiteFANet":
             model = LiteFANet(in_channels=opt["in_channels"], out_channels=opt["classes"], dim=opt["dimension"], scaling_version=opt["scaling_version"])
 
@@ -408,7 +408,7 @@ def get_model(opt):
         else:
             raise RuntimeError(f"No {opt['model_name']} model available on {opt['dataset_name']} dataset")
 
-    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG":
+    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG" or opt["dataset_name"] == "acdc":
         if opt["model_name"] == "LiteFANet":
             model = LiteFANet(in_channels=opt["in_channels"], out_channels=opt["classes"], dim=opt["dimension"], scaling_version=opt["scaling_version"])
 
