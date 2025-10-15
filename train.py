@@ -510,6 +510,73 @@ params_Kvasir_SEG = {
     "save_epoch_freq": 150,
 }
 
+params_acdc = {
+    # ——————————————————————————————————————————————     Launch Initialization    ———————————————————————————————————————————————————
+    "CUDA_VISIBLE_DEVICES": "0",
+    "seed": 1777777,
+    "cuda": True,
+    "benchmark": False,
+    "deterministic": True,
+    # —————————————————————————————————————————————     Preprocessing       ————————————————————————————————————————————————————
+    "resize_shape": (256, 256),
+    # ——————————————————————————————————————————————    Data Augmentation    ——————————————————————————————————————————————————————
+    "augmentation_p": 0.22448543324157222,
+    "color_jitter": 0.3281010563062837,
+    "random_rotation_angle": 30,
+    "normalize_means": (31.129348754882812, 31.129348754882812, 31.129348754882812),
+    "normalize_stds": (42.57401657104492, 42.57401657104492, 42.57401657104492),
+    # —————————————————————————————————————————————    Data Loading     ——————————————————————————————————————————————————————
+    "dataset_name": "acdc",
+    "dataset_path": r"./datasets/acdc",
+    "batch_size": 8,
+    "num_workers": 4,
+    # —————————————————————————————————————————————    Model     ——————————————————————————————————————————————————————
+    "model_name": "CENet",
+    "in_channels": 3,
+    "classes": 4,
+    # "scaling_version": "Ultra",
+    "dimension": "2d",
+    "index_to_class_dict":
+    {
+        0: "background",
+        1: "LV",
+        2:"Myo",
+        3:"RV"
+    },
+    "resume": None,
+    "pretrain": None,
+    # ——————————————————————————————————————————————    Optimizer     ——————————————————————————————————————————————————————
+    "optimizer_name": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.00005,
+    "momentum": 0.7781834740942233,
+    # ———————————————————————————————————————————    Learning Rate Scheduler     —————————————————————————————————————————————————————
+    "lr_scheduler_name": "CosineAnnealingLR",
+    "gamma": 0.8079569870480704,
+    "step_size": 20,
+    "milestones": [10, 30, 60, 100, 120, 140, 160, 170],
+    "T_max": 500,
+    "T_0": 10,
+    "T_mult": 2,
+    "mode": "max",
+    "patience": 5,
+    "factor": 0.91,
+    # ————————————————————————————————————————————    Loss And Metric     ———————————————————————————————————————————————————————
+    "metric_names": ["DSC", "IoU", "JI", "ACC"],
+    "loss_function_name": "DiceLoss",
+    "class_weight": [0.1557906849111095, 0.8442093150888904],
+    "sigmoid_normalization": False,
+    "dice_loss_mode": "extension",
+    "dice_mode": "standard",
+    # —————————————————————————————————————————————   Training   ——————————————————————————————————————————————————————
+    "optimize_params": False,
+    "run_dir": r"./runs",
+    "start_epoch": 0,
+    "end_epoch": 500,
+    "best_metric": 0,
+    "terminal_show_freq": 8,
+    "save_epoch_freq": 150,
+}
 
 # （省略其余 params 定义，实际脚本中保留）
 
@@ -542,6 +609,8 @@ def main():
         params = params_CHASE_DB1
     elif args.dataset == "Kvasir-SEG":
         params = params_Kvasir_SEG
+    elif args.dataset == "acdc":
+        params = params_acdc
     else:
         raise RuntimeError(f"No {args.dataset} dataset available")
 
@@ -595,7 +664,7 @@ def main():
     if params["dimension"] == "3d":
         dummy_shape = (1, params["in_channels"], *params.get("crop_size", (160,160,96)))
     else:
-        dummy_shape = (1, params["in_channels"], *params.get("resize_shape", (224,224)))
+        dummy_shape = (1, params["in_channels"], *params.get("resize_shape", (256,256)))
 
     # —— 1. FLOPs（在 CPU 上） ——
     try:

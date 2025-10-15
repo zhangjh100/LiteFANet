@@ -573,7 +573,8 @@ class UNet(nn.Module):
 
 
 if __name__ == '__main__':
-    input = torch.rand(2, 3, 224, 320)
+    # input = torch.rand(2, 3, 224, 320)
+    input = torch.rand(8, 3, 256, 256)
     # model = RCEM(3, 64)
     # model = UltraBlock(3, 64, 64)
     model = CE_Net()

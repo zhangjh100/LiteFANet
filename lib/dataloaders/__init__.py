@@ -7,6 +7,7 @@ from .RevisionDataset import RevisionDataset
 from .ToothDataset import ToothDataset
 from .KfoldToothDataset import KfoldToothDataset
 from .KvasirSEGDataset import KvasirSEGDataset
+from .acdcDataset import acdcDataset
 
 def get_dataloader(opt, train_images_path_list=None, train_labels_path_list=None, valid_images_path_list=None, valid_labels_path_list=None):
     """
@@ -61,6 +62,13 @@ def get_dataloader(opt, train_images_path_list=None, train_labels_path_list=None
         train_loader = DataLoader(train_set, batch_size=opt["batch_size"], shuffle=True, num_workers=opt["num_workers"], pin_memory=True)
         valid_loader = DataLoader(valid_set, batch_size=opt["batch_size"], shuffle=False, num_workers=opt["num_workers"], pin_memory=True)
 
+    elif opt["dataset_name"] == "acdc":
+        train_set = acdcDataset(opt, mode="train")
+        valid_set = acdcDataset(opt, mode="test")
+
+        train_loader = DataLoader(train_set, batch_size=opt["batch_size"], shuffle=True, num_workers=opt["num_workers"], pin_memory=True)
+        valid_loader = DataLoader(valid_set, batch_size=opt["batch_size"], shuffle=False, num_workers=opt["num_workers"], pin_memory=True)
+
     else:
         raise RuntimeError(f"No {opt['dataset_name']} dataloader available")
 
@@ -94,6 +102,10 @@ def get_test_dataloader(opt):
     elif opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" :
     # elif opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG":
         valid_set = RevisionDataset(opt, mode="valid")
+        valid_loader = DataLoader(valid_set, batch_size=opt["batch_size"], shuffle=False, num_workers=1, pin_memory=True)
+
+    elif opt["dataset_name"] == "acdc":
+        valid_set = acdcDataset(opt, mode="test")
         valid_loader = DataLoader(valid_set, batch_size=opt["batch_size"], shuffle=False, num_workers=1, pin_memory=True)
 
     else:
