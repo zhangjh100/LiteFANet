@@ -50,10 +50,10 @@ class acdcDataset(Dataset):
 
         if mode == "train":
             self.images_list = sorted(glob.glob(os.path.join(self.train_dir, "images", "*.tif")))
-            self.labels_list = sorted(glob.glob(os.path.join(self.train_dir, "annotations", "*.tif")))
+            self.labels_list = sorted(glob.glob(os.path.join(self.train_dir, "annotations_0", "*.tif")))
         else:
             self.images_list = sorted(glob.glob(os.path.join(self.valid_dir, "images", "*.tif")))
-            self.labels_list = sorted(glob.glob(os.path.join(self.valid_dir, "annotations", "*.tif")))
+            self.labels_list = sorted(glob.glob(os.path.join(self.valid_dir, "annotations_0", "*.tif")))
 
     def __len__(self):
         return len(self.images_list)
@@ -67,10 +67,10 @@ class acdcDataset(Dataset):
         elif image.shape[2] == 1:  # 若图像是单通道带维度（H, W, 1）
             image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
-        if len(label.shape) == 3:  # 若图像是单通道（H, W）
-            label = cv2.cvtColor(label, cv2.COLOR_GRAY2BGR)  # 灰度图转 3 通道 BGR
-        elif image.shape[2] == 1:  # 若图像是单通道带维度（H, W, 1）
-            label = cv2.cvtColor(label, cv2.COLOR_GRAY2BGR)
+        if len(label.shape) == 3 and label.shape[2] == 3:
+            label = cv2.cvtColor(label, cv2.COLOR_BGR2GRAY)
+        elif len(label.shape) == 3 and label.shape[2] == 1:
+            label = np.squeeze(label, axis=2)
 
         label[label == 171] = 1
         label[label == 114] = 2
