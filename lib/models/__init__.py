@@ -24,7 +24,7 @@ from .MedT import MedT
 from .MobileNetV2 import MobileNetV2
 from .MsRED import Ms_red_v1, Ms_red_v2
 from .MultiResUNet3D import MultiResUNet3D
-from .LiteFANet import LiteFANet
+# from .LiteFANet import LiteFANet
 from .PSPNet import PSPNet
 from .R2AttentionUNet import R2AttentionU_Net
 from .R2UNet import R2U_Net
@@ -122,8 +122,8 @@ def get_model_optimizer_lr_scheduler(opt):
         #         spatial_dims=3,
         #     )
 
-        elif opt["model_name"] == "LiteFANet":
-            model = LiteFANet(in_channels=opt["in_channels"], out_channels=opt["classes"], dim=opt["dimension"], scaling_version=opt["scaling_version"])
+        # elif opt["model_name"] == "LiteFANet":
+        #     model = LiteFANet(in_channels=opt["in_channels"], out_channels=opt["classes"], dim=opt["dimension"], scaling_version=opt["scaling_version"])
 
         else:
             raise RuntimeError(f"No {opt['model_name']} model available on {opt['dataset_name']} dataset")
