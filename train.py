@@ -564,7 +564,7 @@ params_acdc = {
     # ————————————————————————————————————————————    Loss And Metric     ———————————————————————————————————————————————————————
     "metric_names": ["DSC", "IoU", "JI", "ACC"],
     "loss_function_name": "DiceLoss",
-    "class_weight": [0.1557906849111095, 0.8442093150888904],
+    "class_weight": [1.0, 1.0, 1.0, 1.0],
     "sigmoid_normalization": False,
     "dice_loss_mode": "extension",
     "dice_mode": "standard",
