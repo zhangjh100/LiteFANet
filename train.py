@@ -532,7 +532,7 @@ params_acdc = {
     "num_workers": 4,
     # —————————————————————————————————————————————    Model     ——————————————————————————————————————————————————————
     "model_name": "CENet",
-    "in_channels": 1,
+    "in_channels": 3,
     "classes": 4,
     # "scaling_version": "Ultra",
     "dimension": "2d",
@@ -547,8 +547,8 @@ params_acdc = {
     "pretrain": None,
     # ——————————————————————————————————————————————    Optimizer     ——————————————————————————————————————————————————————
     "optimizer_name": "AdamW",
-    "learning_rate": 0.001,
-    "weight_decay": 0.00005,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.000001,
     "momentum": 0.7781834740942233,
     # ———————————————————————————————————————————    Learning Rate Scheduler     —————————————————————————————————————————————————————
     "lr_scheduler_name": "CosineAnnealingLR",
