@@ -67,7 +67,7 @@ class acdcDataset(Dataset):
         elif image.shape[2] == 1:  # 若图像是单通道带维度（H, W, 1）
             image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
-        if len(label.shape) == 2:  # 若图像是单通道（H, W）
+        if len(label.shape) == 3:  # 若图像是单通道（H, W）
             label = cv2.cvtColor(label, cv2.COLOR_GRAY2BGR)  # 灰度图转 3 通道 BGR
         elif image.shape[2] == 1:  # 若图像是单通道带维度（H, W, 1）
             label = cv2.cvtColor(label, cv2.COLOR_GRAY2BGR)
