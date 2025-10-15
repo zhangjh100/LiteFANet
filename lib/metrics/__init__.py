@@ -46,7 +46,7 @@ def get_metric(opt):
             else:
                 raise RuntimeError(f"No {metric_name} metric available on {opt['dataset_name']} dataset")
 
-    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG":
+    elif opt["dataset_name"] == "ISIC-2018" or opt["dataset_name"] == "DRIVE" or opt["dataset_name"] == "STARE" or opt["dataset_name"] == "CHASE-DB1" or opt["dataset_name"] == "Kvasir-SEG" or opt["dataset_name"] == "acdc":
         metrics = {}
         for metric_name in opt["metric_names"]:
             if metric_name == "DSC":
