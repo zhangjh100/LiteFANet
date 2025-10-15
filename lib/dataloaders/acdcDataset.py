@@ -50,10 +50,10 @@ class acdcDataset(Dataset):
 
         if mode == "train":
             self.images_list = sorted(glob.glob(os.path.join(self.train_dir, "images", "*.tif")))
-            self.labels_list = sorted(glob.glob(os.path.join(self.train_dir, "annotations", "*.tif")))
+            self.labels_list = sorted(glob.glob(os.path.join(self.train_dir, "annotations_0", "*.tif")))
         else:
             self.images_list = sorted(glob.glob(os.path.join(self.valid_dir, "images", "*.tif")))
-            self.labels_list = sorted(glob.glob(os.path.join(self.valid_dir, "annotations", "*.tif")))
+            self.labels_list = sorted(glob.glob(os.path.join(self.valid_dir, "annotations_0", "*.tif")))
 
     def __len__(self):
         return len(self.images_list)
